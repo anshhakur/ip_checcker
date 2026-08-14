@@ -10,7 +10,11 @@ def read_root():
     return {f"Welocome to our BackendS"}
 @app.get('/ip')
 def get_ip(request:Request):
-    return(ip_(request))
+    ip_address , browser_name = ip_(request)
+    return{
+        "ip_address":ip_address,
+        "browser_name":browser_name
+    }
 class signup_request(BaseModel):
     business_name:str
     name:str
@@ -25,5 +29,8 @@ def signup_request_handler(request:signup_request):
         Username=request.Username,
         password=request.password
     )
+
+
+
 
 
