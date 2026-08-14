@@ -1,6 +1,7 @@
 fastapi
 uvicorn[standard]
 python-jose[cryptography]
+supabase
 passlib[argon2]
 python-multipart
 httpx
