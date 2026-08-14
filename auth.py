@@ -1,11 +1,11 @@
-from h11._abnf import status_code
 from database import supabase
 from fastapi import HTTPException , Request
 
 def ip_(request:Request):
     try:
         clint_ip = request.client.host
-        header = request.headers("user-agent")
+        header = request.headers.get("user-agent")
+        
         return clint_ip,header
     except Exception as e:
         raise HTTPException(status_code=400,detail=f"Error: {e}")
@@ -53,6 +53,10 @@ def signup(business_name,name,Username,password,request:Request):
     return {
         'message':'user created sussefully'
     }
+
+
+
+
 
 
 
